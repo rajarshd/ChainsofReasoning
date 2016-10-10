@@ -18,8 +18,8 @@ OUTPUT_DIR = args.output_dir
 # parent_dir = "/home/rajarshi/canvas/traversing_knowledge_graphs/data/path_datasets/"
 # OUTPUT_DIR = "/home/rajarshi/canvas/traversing_knowledge_graphs/data_formatted/"
 
-data_dirs = ['/wordnet_socher_paths_test', '/freebase_socher_paths_test']
-output_dirs = ['/wordnet','/freebase']
+data_dirs = ['/wordnet_socher_paths_test']
+output_dirs = ['/wordnet']
 
 
 PAD_TOKEN='#PAD_TOKEN'

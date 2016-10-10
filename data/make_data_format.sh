@@ -10,8 +10,6 @@ fi
 mainDir='/home/rajarshi/ChainsofReasoning'
 data_dir=$1
 out_dir=$2
-#data_dir='/iesl/canvas/rajarshi/release_with_entities_akbc_linearized_remove_duplicates/'
-#out_dir='/iesl/local/rajarshi/data_full_max_length_8_wout_duplicates/'
 preprocessingDir=${mainDir}/'data'
 only_relation=0 #this means that the input release_directory has only relations.
 qsub_log_dir=$preprocessingDir/qsub_log
@@ -33,11 +31,10 @@ do
 	out_dir_r=$out_dir/$r
 	name=$r
 	echo "Starting for "$relation_dir.
-	# qsub -o $qsub_log_dir/$r.log -e $qsub_log_dir/$r.err -m e -M rajdas14.2007@gmail.com -N $name  -S /bin/bash $preprocessingDir/make_data_format_single_relation.sh $relation_dir $out_dir_r $r $num_entity_types $only_relation &
 	cmd="/bin/bash $preprocessingDir/make_data_format_single_relation.sh $relation_dir $out_dir_r $r $only_relation $max_path_length $num_entity_types $get_only_relations"
 	echo $cmd
-	$cmd 2>$qsub_log_dir/$r.err &
-	cmd1="/bin/bash $preprocessingDir/insertClassLabelsPerRelation.sh $relation_dir $counter $mainDir $qsub_log_dir"
+	$cmd 2>$qsub_log_dir/$r.err
+	cmd1="/bin/bash $preprocessingDir/insertClassLabelsPerRelation.sh $out_dir_r $counter $mainDir $qsub_log_dir"
 	echo "Inserting classId's"
 	echo $cmd1
 	$cmd1 & 2>>$qsub_log_dir/log.err

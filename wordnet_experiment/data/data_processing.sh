@@ -7,18 +7,13 @@ if [ "$#" -ne 2 ]; then
   exit 1
 fi
 
-# input_dir='/home/rajarshi/canvas/traversing_knowledge_graphs/data/path_datasets/'
-# output_dir='/home/rajarshi/canvas/traversing_knowledge_graphs/data_formatted/'
-
 input_dir=$1
 output_dir=$2
-script_dir='/home/rajarshi/eacl17_experiments_wordnet/code/data'
+script_dir='.'
 log_dir=$script_dir/logs
 
 mkdir -p $output_dir/wordnet/vocab
-mkdir -p $output_dir/freebase/vocab
 mkdir -p $log_dir
-
 
 py_cmd="python $script_dir/preprocessing.py -m 0 -i $input_dir -o $output_dir"
 $py_cmd 2>$log_dir/log.err

@@ -14,8 +14,6 @@ function PathQA:__init(params)
 	self.test_net = nil
 	self.model_save_dir = params.model_save_dir
 	self.net = self:build_network()
-	self.max_h_10_dev = 0
-	self.h_10_test = 0
 	self.max_mq_dev = 0
 	self.mq_test = 0
 	-- print(self.net)
@@ -195,7 +193,6 @@ function PathQA:train(train_params)
 			-- xlua.progress(batch_counter, total_batches)
 			if batch_counter == 2500 then
 			print('Exiting after 4000 gradient steps')
-			print('h@10 (test) after tuning dev set is '..self.h_10_test)
 			print('MQ (test) after tuning dev set is '..self.mq_test)				
 			os.exit(1)
 			end
@@ -203,7 +200,6 @@ function PathQA:train(train_params)
 		epoch_counter = epoch_counter + 1
 		train_batcher:reset()
 	end	
-	print('h@10 (test) after tuning dev set is '..self.h_10_test)
 	print('MQ (test) after tuning dev set is '..self.mq_test)	
 end
 
@@ -247,7 +243,6 @@ function PathQA:check_performance(batcher, test_batcher)
 	local embedding_mat = params[1] -- this is vocab X dim
 
 	local get_performance = function(batcher)
-		local h_at_10 = 0
 		local mq = 0 --mean quantile
 		local num_data = 0
 		while(true) do
@@ -267,23 +262,16 @@ function PathQA:check_performance(batcher, test_batcher)
 			local scores = torch.mm(e1_path, embedding_mat:t()) -- scores is batch_size X vocab
 			
 			local filtered_score_mat = self:get_filtered_scores(scores, negative_examples_indexes)
-			h_at_10 = h_at_10 + self:calculate_hits_at_10(filtered_score_mat, e2)
 			mq = mq + self:quantile(filtered_score_mat, num_negative_examples, e2)
 			num_data = num_data + e2:size(1)
 
 		end	
 		batcher:reset() -- for the next iter
-		return h_at_10/ num_data, mq/num_data
+		return mq/num_data
 	end
 
-	h_at_10_dev, mq_dev = get_performance(batcher)
-	print('hits@10 (dev) '..h_at_10_dev)
+	mq_dev = get_performance(batcher)
 	print('Mean Quantile (dev) '..mq_dev)
-	if h_at_10_dev > self.max_h_10_dev then
-		self.max_h_10_dev = h_at_10_dev
-		self.h_10_test, _ = get_performance(test_batcher)
-	end
-
 	if mq_dev > self.max_mq_dev then
 		self.max_mq_dev = mq_dev
 		_, self.mq_test = get_performance(test_batcher)
@@ -324,22 +312,5 @@ function PathQA:quantile(filtered_scores, num_negative_examples, e2)
 	--return sum
 	return quantile:sum()
 
-
-end
-
--- e2 are the target entities
-function PathQA:calculate_hits_at_10(filtered_scores, e2)
-	local k = 10
-	--1. get the top-k for each row
-	local top_k_scores, index = torch.topk(filtered_scores, k, 2, true) --top_k_scores, index is batch X k
-	-- 2. expand e2
-	local e2_expanded = e2:view(e2:size(1),1):expandAs(index)
-	--3. if e2 is there row would be 1 else all 0's
-	--Looks like cuda tensors dont have map method; well, convert to double
-	index = index:double()
-	e2_expanded = e2_expanded:double()
-	index:map(e2_expanded, function(x,y) if x == y then return 1 else return 0 end end) -- each row will contain atmost one 1
-	--4. sum the tensor
-	return torch.sum(index) -- sum all the 1's
 
 end

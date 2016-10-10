@@ -29,13 +29,9 @@ local batch_size = 1000
 local test_batch_size = 1000
 local train_file = '/iesl/canvas/rajarshi/traversing_knowledge_graphs/data_formatted/wordnet/train.torch'
 local dev_file = '/iesl/canvas/rajarshi/traversing_knowledge_graphs/data_formatted/wordnet/dev.torch'
--- local dev_file = '/iesl/canvas/rajarshi/traversing_knowledge_graphs/data_formatted/wordnet/dev_kbc.torch'
 local test_file = '/iesl/canvas/rajarshi/traversing_knowledge_graphs/data_formatted/wordnet/test.torch'
--- local test_file = '/iesl/canvas/rajarshi/traversing_knowledge_graphs/data_formatted/wordnet/test_kbc.torch'
 local neg_input_dev = '/iesl/canvas/rajarshi/traversing_knowledge_graphs/data_formatted/wordnet/dev_neg.torch'
--- local neg_input_dev = '/iesl/canvas/rajarshi/traversing_knowledge_graphs/data_formatted/wordnet/dev_kbc_neg.torch'
 local neg_input_test = '/iesl/canvas/rajarshi/traversing_knowledge_graphs/data_formatted/wordnet/test_neg.torch'
--- local neg_input_test = '/iesl/canvas/rajarshi/traversing_knowledge_graphs/data_formatted/wordnet/test_kbc_neg.torch'
 local shuffle = true
 local useCuda = true
 local train_batcher = Batcher(train_file, batch_size, args.entity_vocab_size, shuffle)
@@ -64,8 +60,6 @@ local train_params = {
 	epsilon = epsilon,
 	optim_method = optim_method
 }
-
--- print(train_params)
 
 print('Starting to train!')
 p_qa:train(train_params)

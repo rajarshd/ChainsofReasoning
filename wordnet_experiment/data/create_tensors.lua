@@ -15,11 +15,11 @@ local params = cmd:parse(arg)
 local input_dir = params.input_dir
 local output_dir = params.output_dir
 
-dirs = {'wordnet', 'freebase'}
+dirs = {'wordnet'}
 
 
-input_files = {'train.int', 'dev.int', 'test.int', 'test_kbc.int', 'dev_kbc.int'}
-output_files = {'train.torch', 'dev.torch', 'test.torch', 'test_kbc.torch', 'dev_kbc.torch'} --will contain lua tables
+input_files = {'train.int', 'dev.int', 'test.int'}
+output_files = {'train.torch', 'dev.torch', 'test.torch'} --will contain lua tables
 for dir_counter, dir_name in pairs(dirs) do
 	print(dir_name)
 	for file_counter, file_name in pairs(input_files) do
