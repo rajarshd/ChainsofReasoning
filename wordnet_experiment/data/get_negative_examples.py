@@ -20,20 +20,13 @@ config['dataset_path'] = args.dataset_path
 entity_vocab = {}
 relation_vocab = {}
 out_file = ''
-if args.config == 'wordnet_experiment':
-	with open('../vocab/wordnet/relation_vocab.txt') as rel_vocab:
-		relation_vocab = json.load(rel_vocab)
-	with open('../vocab/wordnet/entity_vocab.txt') as ent_vocab:
-		entity_vocab = json.load(ent_vocab)
-	out_dir = '../negative_examples/wordnet'
-	out_files = [out_dir+'/dev_neg.txt', out_dir+'/test_neg.txt']
-else:
-	with open('../vocab/freebase/relation_vocab.txt') as rel_vocab:
-		relation_vocab = json.load(rel_vocab)
-	with open('../vocab/freebase/entity_vocab.txt') as ent_vocab:
-		entity_vocab = json.load(ent_vocab)
-	out_dir = '../negative_examples/freebase'
-	out_files = [out_dir+'/dev_neg.txt', out_dir+'/test_neg.txt']
+
+with open('../vocab/wordnet/relation_vocab.txt') as rel_vocab:
+	relation_vocab = json.load(rel_vocab)
+with open('../vocab/wordnet/entity_vocab.txt') as ent_vocab:
+	entity_vocab = json.load(ent_vocab)
+out_dir = '../negative_examples/wordnet'
+out_files = [out_dir+'/dev_neg.txt', out_dir+'/test_neg.txt']
 
 print 'Vocab file read...'
 
