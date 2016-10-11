@@ -272,8 +272,6 @@ function PathQA:check_performance(batcher, test_batcher)
 		self.max_mq_dev = mq_dev
 		_, self.mq_test = get_performance(test_batcher)
 	end
-	--calculate for test data; dont print it out
-
 end
 
 function PathQA:get_filtered_scores(scores, negative_examples_indexes)
