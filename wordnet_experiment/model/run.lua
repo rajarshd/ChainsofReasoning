@@ -9,7 +9,7 @@ require('cunn')
 
 local gpuid = 0
 cutorch.setDevice(gpuid + 1)
-local model_save_dir = '/iesl/canvas/rajarshi/path_qa_experiment/'
+local model_save_dir = --path to you want to save your trained parameters;
 --params
 args = {
 input_dim = 100,
@@ -27,11 +27,11 @@ p_qa:initialize_net()
 
 local batch_size = 1000
 local test_batch_size = 1000
-local train_file = '/iesl/canvas/rajarshi/traversing_knowledge_graphs/data_formatted/wordnet/train.torch'
-local dev_file = '/iesl/canvas/rajarshi/traversing_knowledge_graphs/data_formatted/wordnet/dev.torch'
-local test_file = '/iesl/canvas/rajarshi/traversing_knowledge_graphs/data_formatted/wordnet/test.torch'
-local neg_input_dev = '/iesl/canvas/rajarshi/traversing_knowledge_graphs/data_formatted/wordnet/dev_neg.torch'
-local neg_input_test = '/iesl/canvas/rajarshi/traversing_knowledge_graphs/data_formatted/wordnet/test_neg.torch'
+local train_file = 'path/to/train.torch'
+local dev_file = 'path/to/dev.torch'
+local test_file = 'path/to/test.torch'
+local neg_input_dev = 'path/to/dev_neg.torch'
+local neg_input_test = 'path/to/test_neg.torch'
 local shuffle = true
 local useCuda = true
 local train_batcher = Batcher(train_file, batch_size, args.entity_vocab_size, shuffle)
