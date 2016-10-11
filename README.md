@@ -28,6 +28,17 @@ cd data
 sh make_data_format.sh examples/data_small_input examples/data_small_output
 ```
 
-##Path Query Experiment on WordNet (Sec 5.5 of the paper)
+### Model
+To start training, first checkout [run_scripts/config.sh](run_scripts/config.sh). This defines all the hyperparams and other inputs to the network. After specifying model parameters, to start training run,
+
+```shell
+cd run_sripts
+/bin/bash train.sh ./config.sh
+```
+
+###Path Query Experiment on WordNet (Sec 5.5 of the paper)
 Checkout the instructions of the readme page in [wordnet_experiment/README.md](wordnet_experiment/README.md).
+
+###Contact:
+Feel free to email me with any questions you have at rajarshi@cs.umass.edu
 
