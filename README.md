@@ -19,3 +19,6 @@ cd data
 sh make_data_format.sh examples/data_small_input examples/data_small_output
 ```
 
+##Path Query Experiment on WordNet (Sec 5.5 of the paper)
+Checkout the instructions of the readme page in wordnet_experiment/ReadMe.md.
+
