@@ -191,15 +191,11 @@ function PathQA:train(train_params)
 				-- io.flush()
 			end
 			-- xlua.progress(batch_counter, total_batches)
-			if batch_counter == 2500 then
-			print('Exiting after 4000 gradient steps')
-			print('MQ (test) after tuning dev set is '..self.mq_test)				
-			os.exit(1)
 			end
 		end
 		epoch_counter = epoch_counter + 1
 		train_batcher:reset()
-	end	
+	end
 	print('MQ (test) after tuning dev set is '..self.mq_test)	
 end
 
