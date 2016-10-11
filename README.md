@@ -20,12 +20,12 @@ Get the data from [here](http://iesl.cs.umass.edu/downloads/akbc16/). (Note: Thi
 To get the correct format to run the models, 
 ```shell
 cd data
-sh make_data_format.sh <path_to_input_data> <output_dir>
+/bin/bash make_data_format.sh <path_to_input_data> <output_dir>
 ```
 For example you can run,
 ```shell
 cd data
-sh make_data_format.sh examples/data_small_input examples/data_small_output
+/bin/bash make_data_format.sh examples/data_small_input examples/data_small_output
 ```
 
 ### Model
