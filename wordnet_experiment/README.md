@@ -3,7 +3,7 @@
 This is the path query experiment in Sec 5.5 of the paper.
 
 ##Data
-Download the datasets released by the original paper [here](https://worksheets.codalab.org/worksheets/0xfcace41fdeec45f3bc6ddf31107b829f/)
+Download the dataset released by the original paper [here](https://worksheets.codalab.org/worksheets/0xfcace41fdeec45f3bc6ddf31107b829f/)
 
 For evaluation, you will also need to have the negative entities for each target entity. You can get that by running [data/get_negative_examples.py](data/get_negative_examples.py). (You have to run it in the original code repository.). I am unable to share the negative entities because of the data limit of github repositories.
 
