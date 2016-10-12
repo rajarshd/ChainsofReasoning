@@ -51,10 +51,6 @@ for line in io.lines(params.input) do
 			end			
 		end
 	end
-	-- print(#inputs)
-	-- print(#inputs[1])
-	-- print(#inputs[1][1])
-	-- os.exit()
 	table.insert(intLabels,labels)
 	table.insert(intInputs,all_paths)
 end
