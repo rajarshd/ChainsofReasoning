@@ -1,38 +1,39 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en-us">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta charset="UTF-8">
     <title>ChainsofReasoning by rajarshd</title>
-
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/github-light.css">
-    <meta name="viewport" content="width=device-width">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
   </head>
   <body>
-    <div class="wrapper">
-      <header>
-        <h1>ChainsofReasoning</h1>
-        <p></p>
+    <section class="page-header">
+      <h1 class="project-name">ChainsofReasoning</h1>
+      <h2 class="project-tagline"></h2>
+      <a href="https://github.com/rajarshd/ChainsofReasoning" class="btn">View on GitHub</a>
+      <a href="https://github.com/rajarshd/ChainsofReasoning/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/rajarshd/ChainsofReasoning/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
 
-        <p class="view"><a href="https://github.com/rajarshd/ChainsofReasoning">View the Project on GitHub <small>rajarshd/ChainsofReasoning</small></a></p>
-
-
-        <ul>
-          <li><a href="https://github.com/rajarshd/ChainsofReasoning/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/rajarshd/ChainsofReasoning/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/rajarshd/ChainsofReasoning">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-        <h1>
+    <section class="main-content">
+      <h1>
 <a id="chainsofreasoning" class="anchor" href="#chainsofreasoning" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ChainsofReasoning</h1>
 
 <p>Code for paper <a href="http://arxiv.org/pdf/1607.01426v1.pdf">Chains of Reasoning over Entities, Relations, and Text using
 Recurrent Neural Networks</a></p>
+
+<h2>
+<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Overview</h2>
+
+<p>Our goal is to combine the rich multistep inference of symbolic logical reasoning with the generalization capabilities of
+neural networks. We are particularly interested in complex reasoning about entities and relations in text and large-scale
+knowledge bases (KBs). Neelakantan et al. (2015) use RNNs to compose the distributed semantics of multi-hop paths in
+KBs; however for multiple reasons, the approach lacks accuracy and practicality. This paper proposes three significant modeling advances: (1) we learn to jointly reason about relations, entities, and entity-types; (2) we use neural attention
+modeling to incorporate multiple paths; (3) we learn to share strength in a single RNN that represents logical composition
+across all relations. On a largescale Freebase+ClueWeb prediction task, we achieve 25% error reduction, and a 53% error reduction on sparse relations due to shared strength. On chains of reasoning in WordNet we reduce error in mean quantile by 84% versus previous state-of-the-art.</p>
 
 <h2>
 <a id="dependencies" class="anchor" href="#dependencies" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Dependencies</h2>
@@ -52,7 +53,7 @@ Recurrent Neural Networks</a></p>
 <h3>
 <a id="data" class="anchor" href="#data" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Data</h3>
 
-<p>Get the data from <a href="http://rajarshd.cs.umass.edu/downloads/akbc16/">here</a>. (Note: This might change soon, as I will release an updated version of the dataset)</p>
+<p>Get the data from <a href="http://iesl.cs.umass.edu/downloads/akbc16/">here</a>. (Note: This might change soon, as I will release an updated version of the dataset)</p>
 
 <p>To get the correct format to run the models, </p>
 
@@ -81,13 +82,15 @@ Recurrent Neural Networks</a></p>
 <a id="contact" class="anchor" href="#contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contact:</h3>
 
 <p>Feel free to email me with any questions you have at <a href="mailto:rajarshi@cs.umass.edu">rajarshi@cs.umass.edu</a></p>
-      </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/rajarshd">rajarshd</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/rajarshd/ChainsofReasoning">ChainsofReasoning</a> is maintained by <a href="https://github.com/rajarshd">rajarshd</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
       </footer>
-    </div>
-    <script src="javascripts/scale.fix.js"></script>
-    
+
+    </section>
+
+  
   </body>
 </html>
