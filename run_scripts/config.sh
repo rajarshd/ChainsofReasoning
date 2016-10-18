@@ -1,6 +1,5 @@
 #!/bin/bash
 host=`hostname`
-
 experiment_dir="."		
 output_dir="path/to/expts/dir"
 experiment_file=$experiment_dir/0.txt

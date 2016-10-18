@@ -4,6 +4,7 @@ import re
 import argparse
 from collections import defaultdict
 import random
+import gzip
 
 parser = argparse.ArgumentParser()
 parser.add_argument('-i','--input_dir', required=True)
@@ -24,40 +25,40 @@ MAX_POSSIBLE_LENGTH_PATH = int(args.max_path_length)
 NUM_ENTITY_TYPES_SLOTS = int(args.max_num_types)
 
 #gunzip the files in the vocab directory and plug it in; alternatively you can create your own vocab too.
-entity_type_vocab_file = 'path/to/vocab/sentity_type_vocab.txt'
-relation_vocab_file = 'path/to/vocab/relation_vocab.txt'
-entity_vocab_file = 'path/to/vocab/entity_vocab.txt'
-entity_type_map_file = 'path/to/vocab/entity_to_list_type.json'
-label_vocab_file='path/to/vocab/domain-label'
+entity_type_vocab_file = '../vocab/entity_type_vocab.txt.gz'
+relation_vocab_file = '../vocab/relation_vocab.txt.gz'
+entity_vocab_file = '../vocab/entity_vocab.txt.gz'
+entity_type_map_file = '../vocab/entity_to_list_type.json.gz'
+label_vocab_file='../vocab/domain-label.gz'
 
 if not isOnlyRelation:
 	print 'reading entity type vocab'
 	entity_type_vocab = {}	
-	with open(entity_type_vocab_file) as vocab:
+	with gzip.open(entity_type_vocab_file,'r') as vocab:
 		entity_type_vocab = json.load(vocab)
 	print 'Done reading entity type vocab'
 
 	print 'reading entity vocab'
 	entity_vocab = {}
-	with open(entity_vocab_file) as vocab:
+	with gzip.open(entity_vocab_file,'r') as vocab:
 		entity_vocab = json.load(vocab)
 	print 'Done reading entity vocab'
 
 	print 'reading entity to type list'
 	entity_type_map = {}
-	with open(entity_type_map_file) as f:
+	with gzip.open(entity_type_map_file,'r') as f:
 		entity_type_map = json.load(f)
 	print ' Done reading entity to type list'
 
 print 'reading relation vocab'
 relation_vocab = {}
-with open(relation_vocab_file) as vocab:
+with gzip.open(relation_vocab_file,'r') as vocab:
 	relation_vocab = json.load(vocab)
 print 'Done reading relation vocab'
 
 #read label2int
 print 'Reading label vocab'
-with open(label_vocab_file) as label_vocab:
+with gzip.open(label_vocab_file,'r') as label_vocab:
 	label2int = json.load(label_vocab)
 print 'Done reading label vocab'
 

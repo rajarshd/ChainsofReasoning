@@ -6,7 +6,7 @@ if [ "$#" -ne 2 ]; then
   exit 1
 fi
 
-
+#change this
 mainDir='/home/rajarshi/ChainsofReasoning'
 data_dir=$1
 out_dir=$2
