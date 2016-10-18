@@ -23,23 +23,12 @@ isEc2_instance = (args.ec2_instance == '1')
 MAX_POSSIBLE_LENGTH_PATH = int(args.max_path_length)
 NUM_ENTITY_TYPES_SLOTS = int(args.max_num_types)
 
-
-entity_type_vocab_file =''
-relation_vocab_file=''
-entity_vocab_file=''
-label_vocab_file=''
-if isEc2_instance:
-	entity_type_vocab_file = '/home/ubuntu/vocab_new/entity_type_vocab.txt'
-	relation_vocab_file = '/home/ubuntu/vocab_new/relation_vocab.txt'
-	entity_vocab_file = '/home/ubuntu/vocab_new/entity_vocab.txt'
-	entity_type_map_file = '/home/ubuntu/vocab_new/entity_to_list_type.json'
-	label_vocab_file='/home/ubuntu/vocab_new/domain-label'
-else:
-	entity_type_vocab_file = '/iesl/canvas/rajarshi/vocab_new/entity_type_vocab.txt'
-	relation_vocab_file = '/iesl/canvas/rajarshi/vocab_new/relation_vocab.txt'
-	entity_vocab_file = '/iesl/canvas/rajarshi/vocab_new/entity_vocab.txt'
-	entity_type_map_file = '/iesl/canvas/rajarshi/vocab_new/entity_to_list_type.json'
-	label_vocab_file='/iesl/canvas/rajarshi/vocab_new/domain-label'
+#gunzip the files in the vocab directory and plug it in; alternatively you can create your own vocab too.
+entity_type_vocab_file = 'path/to/vocab/sentity_type_vocab.txt'
+relation_vocab_file = 'path/to/vocab/relation_vocab.txt'
+entity_vocab_file = 'path/to/vocab/entity_vocab.txt'
+entity_type_map_file = 'path/to/vocab/entity_to_list_type.json'
+label_vocab_file='path/to/vocab/domain-label'
 
 if not isOnlyRelation:
 	print 'reading entity type vocab'
