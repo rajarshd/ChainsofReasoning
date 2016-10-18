@@ -39,6 +39,11 @@ cd run_sripts
 ###Path Query Experiment on WordNet (Sec 5.5 of the paper)
 Checkout the instructions of the readme page in [wordnet_experiment/README.md](wordnet_experiment/README.md).
 
+###ChangeLog
+```
+- 10/18/2016 - Added the vocabs, I used for my experiments (as requested)
+```
+
 ###Contact:
 Feel free to email me with any questions you have at rajarshi@cs.umass.edu
 
