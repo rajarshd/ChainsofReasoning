@@ -1,7 +1,7 @@
 # ChainsofReasoning
 
 Code for paper [Chains of Reasoning over Entities, Relations, and Text using
-Recurrent Neural Networks](#)
+Recurrent Neural Networks](http://arxiv.org/pdf/1607.01426v1.pdf)
 
 ##Dependencies
 
@@ -38,11 +38,6 @@ cd run_sripts
 
 ###Path Query Experiment on WordNet (Sec 5.5 of the paper)
 Checkout the instructions of the readme page in [wordnet_experiment/README.md](wordnet_experiment/README.md).
-
-###ChangeLog
-```
-- 10/18/2016 - Added the vocabs, I used for my experiments (as requested)
-```
 
 ###Contact:
 Feel free to email me with any questions you have at rajarshi@cs.umass.edu

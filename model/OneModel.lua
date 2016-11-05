@@ -15,7 +15,6 @@ require 'BatcherFileList'
 require 'FeatureEmbedding'
 require 'MapReduce'
 require 'TopK'
-require 'MyBCECriterion'
 require 'Print'
 require 'LogSumExp'
 
