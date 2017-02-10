@@ -114,7 +114,11 @@ function MyOptimizer:train(trainBatcher)
         count = 0
         while(true) do
             local minibatch_targets,minibatch_inputs,num, classId = trainBatcher:getBatch()
-            self.model = nn.Sequential():add(self.origModel):add(nn.Select(2,classId)):cuda()
+            if self.cuda then
+                self.model = nn.Sequential():add(self.origModel):add(nn.Select(2,classId)):cuda()
+            else
+                self.model = nn.Sequential():add(self.origModel):add(nn.Select(2,classId))
+            end
             if minibatch_targets == nil then
                 break --end of a batch
             end
