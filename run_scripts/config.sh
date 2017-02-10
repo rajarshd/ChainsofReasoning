@@ -1,11 +1,11 @@
 #!/bin/bash
 host=`hostname`
-experiment_dir="."		
-output_dir="path/to/expts/dir"
+experiment_dir="../"		
+output_dir="results"
 experiment_file=$experiment_dir/0.txt
 output_dir=$output_dir/lse
-data_dir=path/to/data/combined_train_list
-gpu_id=0
+data_dir="../examples/data_small_output/_architecture_structure_address/"
+gpu_id=-1
 numEntityTypes=7
 includeEntityTypes=1
 includeEntity=0

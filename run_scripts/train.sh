@@ -68,7 +68,7 @@ if [ $createExptDir -eq 1 ]; then
 fi
 
 
-dataOptions="-trainList $data_dir/train.list  -tokenFeatures $tokFeats -minibatch $batchSize -gpuid 0 -learningRate $learningRate -l2 $l2 -numEpochs $numEpoch -useAdam $useAdam"
+dataOptions="-dataDir $data_dir -tokenFeatures $tokFeats -minibatch $batchSize -gpuid $gpu_id -learningRate $learningRate -l2 $l2 -numEpochs $numEpoch -useAdam $useAdam"
 dataOptions=$dataOptions" -saveFrequency $saveFrequency -evaluationFrequency $evaluationFrequency -model $modelBase -rnnType $rnnType -exptDir $exptDir -relationVocabSize $relationVocabSize -entityTypeVocabSize $entityTypeVocabSize -relationEmbeddingDim $relationEmbeddingDim -entityTypeEmbeddingDim $entityTypeEmbeddingDim -numFeatureTemplates $numFeatureTemplates"
 dataOptions=$dataOptions" -numEntityTypes $numEntityTypes -includeEntityTypes $includeEntityTypes -includeEntity $includeEntity -entityVocabSize $entityVocabSize -entityEmbeddingDim $entityEmbeddingDim -rnnHidSize $rnnHidSize -topK $topK -epsilon $epsilon -gradClipNorm $gradClipNorm -gradientStepCounter $gradientStepCounter -useGradClip $useGradClip -paramInit $paramInit -createExptDir $createExptDir"
 dataOptions=$dataOptions" -useReLU $useReLU -rnnInitialization $rnnInitialization -learningRateDecay $learningRateDecay -regularize $regularize -numLayers $numLayers -useDropout $useDropout -dropout $dropout -K $K"

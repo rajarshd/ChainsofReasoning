@@ -1,9 +1,10 @@
 --takes in a data file and implements logic for returning batches from it.
 local Batcher = torch.class('Batcher')
 
-function  Batcher:__init(fileName, batchSize, shuffle)
-	
-	local loadedData = torch.load(fileName)
+function  Batcher:__init(filePath, batchSize, shuffle)
+	print(filePath)
+	local loadedData = torch.load(filePath)
+	print(loadedData)
 	self.labels = loadedData.labels
 	self.data = loadedData.data
 	self.classId = loadedData.classId

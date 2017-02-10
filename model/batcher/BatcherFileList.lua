@@ -2,7 +2,8 @@ require 'Batcher'
 require 'os'
 local BatcherFileList = torch.class('BatcherFileList')
 
-function BatcherFileList:__init(fileList, batchSize, shuffle, maxBatches, useCuda)
+function BatcherFileList:__init(dataDir, batchSize, shuffle, maxBatches, useCuda)
+	fileList = dataDir .. 'train.list'
 	self.doShuffle = shuffle
 	self.batchSize = batchSize
 	self.useCuda = useCuda
@@ -17,8 +18,8 @@ function BatcherFileList:__init(fileList, batchSize, shuffle, maxBatches, useCud
 	print(string.format('reading file list from %s',fileList))
 	local file_counter = 0
 	for file in io.lines(fileList) do
-		-- print(file)
-		local batcher = Batcher(file, batchSize, self.doShuffle)
+		-- concatenate with the path to the data directory
+		local batcher = Batcher(dataDir..file, batchSize, self.doShuffle)
 		table.insert(self.batchers, batcher)
 		self.numBatchers = self.numBatchers + 1
 		file_counter = file_counter + 1

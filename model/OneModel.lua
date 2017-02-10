@@ -19,8 +19,8 @@ require 'Print'
 require 'LogSumExp'
 
 cmd = torch.CmdLine()
-cmd:option('-trainList','','torch format train file list')
-cmd:option('-testList','','torch format test file list')
+-- cmd:option('-trainList','','torch format train file list')
+cmd:option('-dataDir','','path to the folder containing the dataset')
 cmd:option('-minibatch',32,'minibatch size')
 cmd:option('-testTimeMinibatch',32,'minibatch size')
 cmd:option('-numRowsToGPU',1,'Num of rows to be loaded to GPU from each input file in the file list')
@@ -88,7 +88,7 @@ local numRowsToGPU = params.numRowsToGPU
 local lazyCuda = params.lazyCuda == 1
 local useCuda = params.gpuid ~= -1
 local minibatch = params.minibatch
-local trainList = params.trainList
+local dataDir = params.dataDir
 local testList = params.testList
 local relationVocabSize = params.relationVocabSize
 local relationEmbeddingDim = params.relationEmbeddingDim
@@ -315,7 +315,7 @@ if (not loadModel) then
 		end
 	end
 end
-local trainBatcher = BatcherFileList(trainList, minibatch, shuffle, maxBatches, useCuda)
+local trainBatcher = BatcherFileList(dataDir, minibatch, shuffle, maxBatches, useCuda)
 
 --------Initialize Optimizer-------
 local regularization = {
