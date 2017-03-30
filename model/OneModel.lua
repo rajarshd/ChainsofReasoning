@@ -106,7 +106,7 @@ local  includeEntity = params.includeEntity == 1
 local isTopK = params.topK == 1
 local k = params.K
 local useGradClip = params.useGradClip == 1
-local seed = 12345
+--local seed = 12345
 local createExptDir = params.createExptDir == 1
 local useReLU = params.useReLU == 1
 local rnnInitialization = params.rnnInitialization == 1
@@ -114,7 +114,7 @@ local labelDimension = 46
 local numLayers = params.numLayers
 local useDropout = params.useDropout
 local dropout = params.dropout
-torch.manualSeed(seed)
+--torch.manualSeed(seed)
 
 local exptDir = nil
 local configFileName = nil
