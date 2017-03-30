@@ -36,13 +36,17 @@ cd run_sripts
 /bin/bash train.sh ./config.sh
 ```
 
-###Path Query Experiment on WordNet (Sec 5.5 of the paper)
+### Path Query Experiment on WordNet (Sec 5.5 of the paper)
 Checkout the instructions of the readme page in [wordnet_experiment/README.md](wordnet_experiment/README.md).
 
 ### GPU/CPU settings
 Set gpu_id=0 in run_scripts/config.sh to enable GPU training using CUDA.
 Set gpu_id=-1 in run_scripts/config.sh to disable GPU training.
 
-###Contact:
+### Changelog
+Mar 29 2017: added test scripts on request.
+
+### Contact:
 Feel free to email me with any questions you have at rajarshi@cs.umass.edu
+
 
