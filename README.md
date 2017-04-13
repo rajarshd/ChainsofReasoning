@@ -45,6 +45,7 @@ Set gpu_id=-1 in run_scripts/config.sh to disable GPU training.
 
 ### Changelog
 Mar 29 2017: added test scripts.
+
 Apr 13 2017: Investigating a possible data mismatch issue.
 
 ### Contact:
