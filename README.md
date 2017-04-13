@@ -44,7 +44,8 @@ Set gpu_id=0 in run_scripts/config.sh to enable GPU training using CUDA.
 Set gpu_id=-1 in run_scripts/config.sh to disable GPU training.
 
 ### Changelog
-Mar 29 2017: added test scripts on request.
+Mar 29 2017: added test scripts.
+Apr 13 2017: Investigating a possible data mismatch issue.
 
 ### Contact:
 Feel free to email me with any questions you have at rajarshi@cs.umass.edu
