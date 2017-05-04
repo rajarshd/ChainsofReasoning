@@ -1,7 +1,7 @@
 # ChainsofReasoning
 
 Code for paper [Chains of Reasoning over Entities, Relations, and Text using
-Recurrent Neural Networks](http://arxiv.org/pdf/1607.01426v2.pdf)
+Recurrent Neural Networks](https://arxiv.org/abs/1607.01426)
 
 ##Dependencies
 
