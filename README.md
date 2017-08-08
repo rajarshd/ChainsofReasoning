@@ -45,7 +45,6 @@ Set gpu_id=-1 in run_scripts/config.sh to disable GPU training.
 
 ### Changelog
 - Aug 7 2017: Released the dataset used for the EACL paper. I apologize for the delay.
-- Apr 13 2017: Investigating a possible data mismatch issue.
 - Mar 29 2017: added test scripts.
 
 ### Contact:
